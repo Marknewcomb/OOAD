@@ -30,6 +30,18 @@ pipeline {
 		    }
 
 		}
+		stage("Push to Docker"){
+		                steps{
+		                    dir("OOAD"){
+		                        bat "docker build -t ooad ."
+		                        bat "docker login -u mnewcomb21 -p 196711aaAA!!"
+		                        bat "docker tag ooad mnewcomb21/ooad"
+		                        bat "docker push mnewcomb21/ooad"
+		                    }
+
+		                }
+
+		            }
 
     }
 
